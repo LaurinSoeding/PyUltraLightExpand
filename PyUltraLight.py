@@ -407,7 +407,7 @@ def z_to_t(z):#t in code units
 
 def t_to_a(t):#t in code units
     a = ( np.sqrt(omega_m0/omega_lambda)*np.sinh( t*np.sqrt(omega_lambda/omega_m0*6*np.pi) ) )**(2/3)
-    return 1
+    return a
 
 def a_to_t(a):#t in code units
     t = np.sqrt(omega_m0/omega_lambda/6/np.pi)*np.arcsinh( np.sqrt(omega_lambda/omega_m0)*a**(3/2) )
@@ -436,7 +436,7 @@ def evolve(central_mass, num_threads, length, length_units, resol, initial_z, fi
         
     t = z_to_t(final_z) - z_to_t(initial_z) #time duration
     timeparameter = z_to_t(initial_z) #initial time in code units
-    scalefactor = 1#/(1+initial_z) #initial scalefactor
+    scalefactor = 1/(1+initial_z) #initial scalefactor
     redshift = initial_z
     
     if (c_mass_unit == ''):
